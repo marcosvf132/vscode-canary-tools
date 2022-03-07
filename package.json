@@ -8,6 +8,7 @@
 		"type": "git",
 		"url": "https://github.com/omeranha/vscode-canary-tools"
 	},
+	"icon": "icon/icon.png",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.14.0"
@@ -52,7 +53,7 @@
 				"canary.build-path": {
 					"type": "string",
 					"default": "",
-					"description": "build/bin/Release path."
+					"description": "build/bin/Release path. \n Please restart your vscode after any changes with ctrl+r keybind."
 				},
 				"canary.login-server-path": {
 					"type": "string",
@@ -72,6 +73,7 @@
 		"compile": "tsc -p ./"
 	},
 	"devDependencies": {
+		"@types/node": "^17.0.21",
 		"@types/vscode": "^1.14.0"
 	}
 }
