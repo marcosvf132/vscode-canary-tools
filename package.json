@@ -1,0 +1,77 @@
+{
+	"name": "canary-tools",
+	"displayName": "Canary-Tools",
+	"description": "Run canary.exe directly from Visual Studio Code",
+	"publisher": "oMeranha",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/omeranha/vscode-canary-tools"
+	},
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.14.0"
+	},
+	"activationEvents": [
+		"onCommand:run-canary",
+		"onCommand:run-login-mysql"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "run-canary",
+				"title": "Run Canary"
+			},
+			{
+				"command": "run-login-mysql",
+				"title": "Start login-server"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "run-canary",
+					"group": "navigation"
+				},
+				{
+					"command": "run-login-mysql",
+					"group": "navigation"
+				}
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "Canary-Tools",
+			"properties": {
+				"canary.path": {
+					"type": "string",
+					"default": "",
+					"description": "Datapack/config.lua path."
+				},
+				"canary.build-path": {
+					"type": "string",
+					"default": "",
+					"description": "build/bin/Release path."
+				},
+				"canary.login-server-path": {
+					"type": "string",
+					"default": "",
+					"description": "login-server executable path."
+				},
+				"canary.mysql-path": {
+					"type": "string",
+					"default": "",
+					"description": "mysqld_z executable path."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.14.0"
+	}
+}
